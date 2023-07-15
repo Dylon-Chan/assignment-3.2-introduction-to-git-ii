@@ -29,3 +29,67 @@ There are several methods of GitHub Authentication:
 6.	SAML Single Sign-On (SSO)
     - Organizations that subscribe to GitHub Enterprise Cloud can enable SAML SSO. 
     - This allows members to authenticate to GitHub using the same credentials they use for other services in their organization.
+
+<br>
+
+## Git Commands
+
+### `git clone`
+> This command is used to create a full copy of a remote repository on the local machine. The cloned repository contains all the project files, complete history, and branches.
+
+### `git fetch`
+> This command fetches updates from the remote repository that are not yet in the local repository. It retrieves the updates but does not merge and change the state of your local repository, leaving the current work intact.
+
+### `git pull`
+> This command fetches updates from the remote repository and merges them into the current local working branch. Essentially, it's a combination of `git fetch` followed by `git merge`.
+
+### `git config --global user.email “xyz@gmail.com”`
+> This command sets the global configuration for my Git user email to "xyz@gmail.com". This email is attached to all the commits I make on any local repositories, identifying me as the author.
+
+### `git config --global user.name “Dylon-Chan”`
+> This command sets the global configuration for my Git username to "Dylon-Chan". Similar to the user email, this name is attached to all the commits I make on any local repositories.
+
+### `git add .`
+> This command stages all the modified, new (untracked) and deleted files in the current directory and its subdirectories, preparing them to be included in my next commit.
+
+### `git commit -m “Update README.md”`
+> The `git commit` command commits the staged changes (save the changes) to the local repository. Committing is the process of taking a snapshot of the changes. The `-m` flag allows a user to include a message with the commit. This message, `Update README.md` in this case, provides context about the changes. Note that this commit only affects the local repository and does not change the remote repository.
+
+### `git push origin main`
+> The `git push` command is used to upload the local repository content to a remote repository after the local commits were made. `origin` is the default name Git gives to the server where the repository was cloned from. `main` refers to the branch that the changes are pushed to on the remote repository. `main` is the default main branch but it could be named something else depends on the branch that the user created or worked on.
+
+### `git branch feature3`
+> This command creates a new branch named `feature3` in the local repository. This is useful for working on new features or bug fixes without affecting the main branch.
+
+### `git checkout feature3`
+> This command switches the active branch to the branch which was named `feature3`. All the changes made will now be on this branch.
+
+### `git checkout -b feature4`
+> `git checkout` command is primarily used to switch from one branch to another and the option `-b` tells the Git to create a new branch with the name `feature4`. Essentially, this command is a shortcut for doing a `git branch` followed by a `git checkout` which creates a new branch named “feature4” and immediately switches the active branch to it.
+
+### `git push --set-upstream origin feature3`
+> The `git push` is used to upload local repository content to a remote repository. `--set-upstream` is the flag that sets the upstream (tracking) reference for the current branch which so that Git will know where to push the commits. `origin` is the name of the remote repository and `feature3` is the name of the branch on the remote repository where user want to push the changes. This command combination is saying: “I want to push the changes from my current local branch to the `feature3` branch on the `origin` remote repository, and I want to set the `feature3` branch on the `origin` repository as the default remote branch for my current local branch”.
+
+### `git init`
+> This command initializes a new Git repository. It creates a new ".git" subfolder in the current directory which will contain all the necessary metadata for the new repository.
+
+### `git status`
+> This command displays the state of the working directory and the staging area. It allows the user to see which changes have been staged, which have not, and which files are not being tracked by Git.
+
+### `git dff`
+> This command shows the differences between the working directory and the index (or staging area). It is useful when user wants to see what changes have made since the last commit. `git diff` will show the exact lines added and removed and will display this information using a `diff` format.
+
+### `git merge`
+> This command is used to combine multiple sequences of commits into one unified history. This is typically done after work in a branch has been completed. During a merge, the changes are integrated back into the base branch, typically `main`. If the branches have diverged, Git will attempt to auto-merge changes unless there are conflicts which need to be manually resolved.
+
+### `git log`
+> This command shows a listing of commits on a branch including the corresponding details. It shows the details of previous commits including the commit hash, author, date, and the commit message. This command can also be customized to show specific formats, or filtered by authors, dates, content changes, etc.
+
+### `git rm`
+> This command is used to remove files from the working directory and from the staging area. After running `git rm`, the file will no longer exist in your working directory and will not be included in the next commit.
+
+### `git mv`
+> This command is used to move or rename a file, a directory, or a symlink. It is a way of telling Git that a file has been renamed while maintaining the file history.
+
+### `git stash`
+> This command is used to save changes that user wants to keep but not commit immediately. It takes the modified tracked files and staged changes, saves them away for later use, and then reverts them from the working copy.
